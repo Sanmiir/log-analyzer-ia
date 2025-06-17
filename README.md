@@ -83,7 +83,7 @@ Linha do log:
 ````
 7. Hospedagem
 A aplicação está hospedada no Streamlit Cloud e pode ser acessada em:
-https://seu-link-do-streamlit-app.streamlit.app
+https://log-analyzer-ia-jcqxcufbb3go4n24ogavjf.streamlit.app/
 
 
     
