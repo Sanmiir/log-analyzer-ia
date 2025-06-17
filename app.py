@@ -11,7 +11,7 @@ load_dotenv()
 st.title("🔍 Analisador Inteligente de Logs com IA (Google Gemini)")
 
 # Tente pegar a chave da variável de ambiente primeiro
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
 
 # Se não tiver, peça para o usuário digitar
 if not GEMINI_API_KEY:
