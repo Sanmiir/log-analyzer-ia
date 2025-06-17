@@ -20,7 +20,7 @@ if GEMINI_API_KEY:
     model = genai.GenerativeModel("gemini-1.5-flash")
 
     log_file = st.file_uploader(
-        "Envie um arquivo de log (.log ou .txt) para ser analiado por nosso analista de segurança cibernética virtual.",
+        "Envie um arquivo de log (.log ou .txt) para ser analisado por nosso analista de segurança cibernética virtual.",
         type=["log", "txt"]
     )
 
