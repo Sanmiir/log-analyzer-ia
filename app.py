@@ -8,6 +8,7 @@ st.set_page_config(page_title="Analisador de Logs com IA (Gemini)", layout="wide
 
 load_dotenv()
 
+# Pega a chave da variável de ambiente ou do Streamlit Secrets
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY", None)
 
 if GEMINI_API_KEY:
@@ -15,6 +16,8 @@ if GEMINI_API_KEY:
     model = genai.GenerativeModel("gemini-1.5-flash")
 else:
     st.warning("Informe sua chave de API Gemini nas Secrets do Streamlit ou no .env")
+
+st.title("🔍 Analisador Inteligente de Logs com IA (Google Gemini)")
 
 log_file = st.file_uploader("Envie um arquivo de log (.log ou .txt) para ser analiado por nosso analista de segurança cibernética virtual.", type=["log", "txt"])
 
