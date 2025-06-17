@@ -4,22 +4,19 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import os
 
-# Carregar .env (se desejar usar dotenv)
+
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.text_input("Digite sua API Key da Gemini", type="password")
 
-# Configuração do modelo
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel("gemini-1.5-flash")
 
-# Streamlit UI
 st.set_page_config(page_title="Analisador de Logs com IA (Gemini)", layout="wide")
 st.title("🔍 Analisador Inteligente de Logs com IA (Google Gemini)")
 
 log_file = st.file_uploader("Envie um arquivo de log (.log ou .txt) para ser analiado por nosso analista de segurança cibernética virtual.", type=["log", "txt"])
 
-# Função de análise com Gemini
 def analisar_linha_com_gemini(linha):
     prompt = f"""
 Você é um analista de segurança cibernética.
@@ -38,7 +35,6 @@ Linha do log:
     except Exception as e:
         return f"[Erro na API Gemini]: {e}"
 
-# Processamento do arquivo
 if log_file and GEMINI_API_KEY:
     log_lines = log_file.read().decode("utf-8").splitlines()
     st.success(f"{len(log_lines)} linhas carregadas.")
