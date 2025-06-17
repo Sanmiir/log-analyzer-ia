@@ -1,0 +1,14 @@
+# Ambiente virtual
+venv/
+
+# Arquivos temporários
+__pycache__/
+*.pyc
+
+# Arquivo de variáveis secretas
+.env
+.streamlit/secrets.toml
+
+# Arquivos de log/output
+*.log
+*.csv
