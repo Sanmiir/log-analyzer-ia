@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import os
 
+st.set_page_config(page_title="Analisador de Logs com IA (Gemini)", layout="wide")
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.text_input("Digite sua API Key da Gemini", type="password")
@@ -12,7 +13,6 @@ if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel("gemini-1.5-flash")
 
-st.set_page_config(page_title="Analisador de Logs com IA (Gemini)", layout="wide")
 st.title("🔍 Analisador Inteligente de Logs com IA (Google Gemini)")
 
 log_file = st.file_uploader("Envie um arquivo de log (.log ou .txt) para ser analiado por nosso analista de segurança cibernética virtual.", type=["log", "txt"])
